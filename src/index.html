@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Pencatatan Keuangan Mahasiswa</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./script.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Keuangan Mahasiswa</h1>
+      <p>Catat dan pantau keuanganmu dengan mudah.</p>
+    </header>
+
+    <section class="summary">
+      <article class="card">
+        <h2>Saldo</h2>
+        <p id="balance">Rp0</p>
+      </article>
+
+      <article class="card">
+        <h2>Pemasukan</h2>
+        <p id="income">Rp0</p>
+      </article>
+
+      <article class="card">
+        <h2>Pengeluaran</h2>
+        <p id="expense">Rp0</p>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Tambah Transaksi</h2>
+
+      <form id="transaction-form">
+        <label for="type">Jenis transaksi</label>
+        <select id="type" required>
+          <option value="income">Pemasukan</option>
+          <option value="expense">Pengeluaran</option>
+        </select>
+
+        <label for="amount">Nominal (Rp)</label>
+        <input id="amount" type="number" min="1" step="1" required>
+
+        <label for="category">Kategori</label>
+        <input id="category" type="text" required>
+
+        <label for="date">Tanggal</label>
+        <input id="date" type="date" required>
+
+        <label for="description">Keterangan</label>
+        <input id="description" type="text">
+
+        <button type="submit">Simpan Transaksi</button>
+        <p id="message" role="status"></p>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Riwayat Transaksi</h2>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Tanggal</th>
+              <th>Jenis</th>
+              <th>Kategori</th>
+              <th>Nominal</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="transaction-list"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
